@@ -27,3 +27,11 @@ export interface LineConfig {
   color: string;
   label: string;
 }
+
+export interface JackpotEntry {
+  id: string;
+  round: number | null;
+  time: string;
+  start: number | null;
+  isChance: boolean;
+}
