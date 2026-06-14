@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(/usr/local/bin/node --version)",
+      "Bash(/opt/homebrew/bin/node --version)",
+      "Bash(brew list *)",
+      "Bash(find /usr /opt /Users/user -name \"node\" -type f 2>/dev/null | head -5)",
+      "Read(//usr/**)",
+      "Bash('/Users/user/Library/Application Support/com.raycast.macos/NodeJS/runtime/22.22.2/bin/node' --version)",
+      "Bash('/Users/user/Library/Application Support/com.raycast.macos/NodeJS/runtime/22.22.2/bin/npm' --version)",
+      "Bash(find /Users -name \"npm\" -type f 2>/dev/null | grep -v raycast | head -5 *)",
+      "Read(//Users/**)",
+      "Bash(which brew 2>/dev/null || ls /opt/homebrew/bin/brew 2>/dev/null && echo \"brew found\" *)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(/opt/homebrew/bin/brew install *)"
+    ]
+  }
+}
