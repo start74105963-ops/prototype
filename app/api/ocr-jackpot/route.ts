@@ -24,19 +24,20 @@ export async function POST(req: NextRequest) {
           {
             type: 'text',
             text: `この画像はパチンコの大当り履歴テーブルです。
-テーブルの各行から「回数」「時間」「スタート」の数値と、テキストの色（赤か黒か）を読み取ってください。
+テーブルの各行から以下の数値を読み取ってください：
+- normalStart: 通常回転数（通常時のスタート数、整数）
+- output: 出玉（獲得玉数、整数）
+- round: ラウンド（例: "16R", "4R", "10R"、文字列）
+- jitan: 時短/ST回転数（整数）
 
-赤文字 = チャンス中の大当り（isChance: true）
-黒文字 = 通常時からの大当り（isChance: false）
-
-以下のJSON形式のみで返してください。余分な説明は不要です：
+JSON配列のみで返してください。余分な説明は不要です：
 [
-  {"round": 1, "time": "12:43", "start": 225, "isChance": false},
-  {"round": 2, "time": "12:52", "start": 110, "isChance": false}
+  {"normalStart": 225, "output": 1500, "round": "16R", "jitan": 100},
+  {"normalStart": 110, "output": 2200, "round": "4R", "jitan": 0}
 ]
 
-「-」の行（当選なし・継続中）は含めないでください。
-テーブルに行が見つからない場合は空配列 [] を返してください。`,
+読み取れないカラムはnullにしてください。
+行が見つからない場合は [] を返してください。`,
           },
         ],
       },

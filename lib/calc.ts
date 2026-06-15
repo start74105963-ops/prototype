@@ -11,7 +11,8 @@ export function calcResult(input: CalcInput): CalcResult {
 
   const pxPerTama = px10000 / 10000;
   const toushiTama = Math.round(-((measureTop - zeroTop) / pxPerTama));
-  const mochiTama = Math.round(-((mochiTop - measureTop) / pxPerTama));
+  // ±0ラインからの差玉（グラフ最終地点の現在位置）
+  const mochiTama = Math.round(-((mochiTop - zeroTop) / pxPerTama));
   const estimatedInvest = toushiTama < 0 ? Math.abs(toushiTama) / tamaPerYen : 0;
   const rate = totalStart && estimatedInvest > 0
     ? Math.round(totalStart / estimatedInvest * 1000)
